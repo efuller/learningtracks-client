@@ -8,7 +8,8 @@ class RegisterForm extends Component {
           email: '',
           password: '',
           confirmPassword: ''
-      }
+      },
+      errors: {}
   };
   onChange = (e) => {
     this.setState({
@@ -33,6 +34,8 @@ class RegisterForm extends Component {
               placeholder="First Name"
             />
           </div>
+            {this.state.errors.firstName ?
+                <p className="help is-danger">{this.state.errors.firstName}</p> : ''}
         </div>
         <div className="field">
           <label htmlFor="lastName" className="label">
@@ -49,6 +52,8 @@ class RegisterForm extends Component {
               placeholder="Last Name"
             />
           </div>
+            {this.state.errors.lastName ?
+                <p className="help is-danger">{this.state.errors.lastName}</p> : ''}
         </div>
         <div className="field">
           <label htmlFor="email" className="label">
@@ -65,6 +70,8 @@ class RegisterForm extends Component {
               placeholder="email"
             />
           </div>
+            {this.state.errors.email ?
+                <p className="help is-danger">{this.state.errors.email}</p> : ''}
         </div>
         <div className="field">
           <label htmlFor="password" className="label">
@@ -81,6 +88,8 @@ class RegisterForm extends Component {
               placeholder="Password"
             />
           </div>
+            {this.state.errors.password ?
+                <p className="help is-danger">{this.state.errors.password}</p> : ''}
         </div>
         <div className="field">
           <label htmlFor="confirmPassword" className="label">
@@ -97,6 +106,8 @@ class RegisterForm extends Component {
               placeholder="Confirm Password"
             />
           </div>
+            {this.state.errors.confirmPassword ?
+                <p className="help is-danger">{this.state.errors.confirmPassword}</p> : ''}
         </div>
         <div className="field">
           <div className="control">

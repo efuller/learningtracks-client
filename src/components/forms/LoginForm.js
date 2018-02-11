@@ -5,7 +5,8 @@ class LoginForm extends Component {
       data: {
           email: '',
           password: ''
-      }
+      },
+      errors: {}
   };
   onChange = (e) => {
     this.setState({
@@ -30,6 +31,8 @@ class LoginForm extends Component {
               placeholder="email"
             />
           </div>
+            {this.state.errors.email ?
+                <p className="help is-danger">{this.state.errors.email}</p> : ''}
         </div>
         <div className="field">
           <label htmlFor="password" className="label">
@@ -46,6 +49,8 @@ class LoginForm extends Component {
               placeholder="Password"
             />
           </div>
+            {this.state.errors.password ?
+                <p className="help is-danger">{this.state.errors.password}</p> : ''}
         </div>
         <div className="field">
           <div className="control">
