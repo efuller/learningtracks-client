@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import RegisterForm from './RegisterForm';
 
 class LoginForm extends Component {
   state = {
-      data: {
-          email: '',
-          password: ''
-      },
-      errors: {}
+    data: {
+      email: '',
+      password: '',
+    },
+    errors: {},
   };
-  onChange = (e) => {
+  onChange = e => {
     this.setState({
-        data: {...this.state.data, [e.target.name]: e.target.value}
+      data: { ...this.state.data, [e.target.name]: e.target.value },
     });
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.submit(this.state.data);
   };
   render() {
     return (
@@ -31,8 +37,11 @@ class LoginForm extends Component {
               placeholder="email"
             />
           </div>
-            {this.state.errors.email ?
-                <p className="help is-danger">{this.state.errors.email}</p> : ''}
+          {this.state.errors.email ? (
+            <p className="help is-danger">{this.state.errors.email}</p>
+          ) : (
+            ''
+          )}
         </div>
         <div className="field">
           <label htmlFor="password" className="label">
@@ -49,17 +58,26 @@ class LoginForm extends Component {
               placeholder="Password"
             />
           </div>
-            {this.state.errors.password ?
-                <p className="help is-danger">{this.state.errors.password}</p> : ''}
+          {this.state.errors.password ? (
+            <p className="help is-danger">{this.state.errors.password}</p>
+          ) : (
+            ''
+          )}
         </div>
         <div className="field">
           <div className="control">
-            <button className="button is-link">Submit</button>
+            <button className="button is-link" onClick={this.onSubmit}>
+              Submit
+            </button>
           </div>
         </div>
       </form>
     );
   }
 }
+
+RegisterForm.propTypes = {
+  submit: PropTypes.func.isRequired,
+};
 
 export default LoginForm;
