@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import RegisterForm from './RegisterForm';
 
 class LoginForm extends Component {
   state = {
@@ -76,7 +75,7 @@ class LoginForm extends Component {
   }
 }
 
-RegisterForm.propTypes = {
+LoginForm.propTypes = {
   submit: PropTypes.func.isRequired,
 };
 
