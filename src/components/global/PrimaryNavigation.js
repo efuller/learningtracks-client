@@ -31,20 +31,20 @@ const PrimaryNavigation = () => (
         <div className="navbar-item">
           <div className="field is-grouped">
             <p className="control">
-              <a className="bd-tw-button button" href="/login">
+              <Link className="bd-tw-button button" to="/login">
                 <span className="icon">
                   <i className="fa fa-twitter" />
                 </span>
                 <span>Login</span>
-              </a>
+              </Link>
             </p>
             <p className="control">
-              <a className="button" href="/register">
+              <Link className="button" to="/register">
                 <span className="icon">
                   <i className="fa fa-download" />
                 </span>
                 <span>Register</span>
-              </a>
+              </Link>
             </p>
           </div>
         </div>
